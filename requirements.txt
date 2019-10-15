@@ -1,6 +1,7 @@
 cycler==0.10.0
 kiwisolver==1.1.0
 matplotlib==3.1.1
+numba==0.46.0
 numpy==1.17.2
 pip==19.3
 progressbar2==3.47.0
