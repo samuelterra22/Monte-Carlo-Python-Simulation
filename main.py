@@ -3,12 +3,15 @@ import math
 import matplotlib.pyplot as plt
 import numpy as np
 import progressbar
+from numba import jit
 
 
+@jit(nopython=True)
 def rand_num(min_value, max_value):
     return np.random.uniform(min_value, max_value)
 
 
+@jit(nopython=True)
 def f(x):
     # return x
     # return math.sin(x)
