@@ -12,9 +12,7 @@ def rand_num(min_value, max_value):
 
 
 @jit(nopython=True)
-def f(x):
-    # return x
-    # return math.sin(x)
+def f_x3(x):
     return pow(x, 3)
 
 
@@ -33,13 +31,13 @@ def graph(max_iterations, lim_min_x, lim_max_x, lim_min_y, lim_max_y, function):
     plt.show()
 
 
-def show_summary(setup):
+def show_summary(setup_data):
     print("### A simple Monte Carlo simulation ###\n")
-    print("Number of iterations:\t\t", setup["max_iterations"])
-    print("Max value of x axis:\t\t", setup["lim_min_x"])
-    print("Min value of x axis:\t\t", setup["lim_max_x"])
-    print("Max value of y axis:\t\t", setup["lim_min_y"])
-    print("Min value of y axis:\t\t", setup["lim_max_y"])
+    print("Number of iterations:\t\t", setup_data["max_iterations"])
+    print("Max value of x axis:\t\t", setup_data["lim_min_x"])
+    print("Min value of x axis:\t\t", setup_data["lim_max_x"])
+    print("Max value of y axis:\t\t", setup_data["lim_min_y"])
+    print("Min value of y axis:\t\t", setup_data["lim_max_y"])
     print()
 
 
@@ -48,7 +46,7 @@ def setup_sin():
         return math.sin(x)
 
     return {
-        "max_iterations": 5000,  # int(input("Inform the max number if iterations: "))
+        "max_iterations": 5000,
         "lim_min_x": -10,
         "lim_max_x": 10,
         "lim_min_y": -1.5,
@@ -59,11 +57,10 @@ def setup_sin():
 
 def setup_y_equal_x():
     def sin_function(x):
-        return math.pow(x, 2) / math.log10(x)
-        # return x
+        return x
 
     return {
-        "max_iterations": 10000,  # int(input("Inform the max number if iterations: "))
+        "max_iterations": 10000,
         "lim_min_x": 0,
         "lim_max_x": 3,
         "lim_min_y": -50,
@@ -73,7 +70,7 @@ def setup_y_equal_x():
 
 
 if __name__ == '__main__':
-    setup = setup_y_equal_x()
+    setup = setup_sin()
 
     show_summary(setup)
 
