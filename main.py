@@ -11,12 +11,7 @@ def rand_num(min_value, max_value):
     return np.random.uniform(min_value, max_value)
 
 
-@jit(nopython=True)
-def f_x3(x):
-    return pow(x, 3)
-
-
-def graph(max_iterations, lim_min_x, lim_max_x, lim_min_y, lim_max_y, function):
+def graph(max_iterations, lim_min_x, lim_max_x, lim_min_y, lim_max_y, function, function_name):
     red_color = "#ff0000"
     green_color = "#018706"
 
@@ -28,6 +23,9 @@ def graph(max_iterations, lim_min_x, lim_max_x, lim_min_y, lim_max_y, function):
 
         plt.scatter(x, y, color=color, s=2)
 
+    plt.xlabel("x")
+    plt.ylabel("f(x)")
+    plt.title("Function " + function_name + " with " + str(max_iterations) + " points")
     plt.show()
 
 
@@ -41,6 +39,21 @@ def show_summary(setup_data):
     print()
 
 
+def setup_fx3():
+    def f_x3_function(x):
+        return pow(x, 3)
+
+    return {
+        "max_iterations": 5000,
+        "lim_min_x": -10,
+        "lim_max_x": 10,
+        "lim_min_y": -10,
+        "lim_max_y": 10,
+        "function": f_x3_function,
+        "function_name": "x^3",
+    }
+
+
 def setup_sin():
     def sin_function(x):
         return math.sin(x)
@@ -51,12 +64,13 @@ def setup_sin():
         "lim_max_x": 10,
         "lim_min_y": -1.5,
         "lim_max_y": 1.5,
-        "function": sin_function
+        "function": sin_function,
+        "function_name": "sin(x)",
     }
 
 
 def setup_y_equal_x():
-    def sin_function(x):
+    def y_equal_x_function(x):
         return x
 
     return {
@@ -65,12 +79,13 @@ def setup_y_equal_x():
         "lim_max_x": 3,
         "lim_min_y": -50,
         "lim_max_y": 50,
-        "function": sin_function
+        "function": y_equal_x_function,
+        "function_name": "x = y",
     }
 
 
 if __name__ == '__main__':
-    setup = setup_sin()
+    setup = setup_fx3()
 
     show_summary(setup)
 
@@ -81,6 +96,7 @@ if __name__ == '__main__':
         lim_max_x=setup["lim_max_x"],
         lim_min_y=setup["lim_min_y"],
         lim_max_y=setup["lim_max_y"],
-        function=setup["function"]
+        function=setup["function"],
+        function_name=setup["function_name"]
     )
     print("Done.")
