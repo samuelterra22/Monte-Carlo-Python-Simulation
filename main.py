@@ -19,7 +19,12 @@ def graph(max_iterations, lim_min_x, lim_max_x, lim_min_y, lim_max_y, function, 
         x = rand_num(lim_min_x, lim_max_x)
         y = rand_num(lim_min_y, lim_max_y)
 
-        color = green_color if y < function(x) else red_color
+        args = {
+            "x": x,
+            "y": y
+        }
+
+        color = green_color if y < function(args) else red_color
 
         plt.scatter(x, y, color=color, s=2)
 
@@ -42,8 +47,8 @@ def show_summary(setup_data):
 
 
 def setup_y_equal_x():
-    def y_equal_x_function(x):
-        return x
+    def y_equal_x_function(args):
+        return args['x']
 
     return {
         "max_iterations": 10000,
@@ -57,8 +62,8 @@ def setup_y_equal_x():
 
 
 def setup_fx2():
-    def f_x2_function(x):
-        return math.pow(x, 2)
+    def f_x2_function(args):
+        return math.pow(args['x'], 2)
 
     return {
         "max_iterations": 10000,
@@ -72,8 +77,8 @@ def setup_fx2():
 
 
 def setup_fx3():
-    def f_x3_function(x):
-        return math.pow(x, 3)
+    def f_x3_function(args):
+        return math.pow(args['x'], 3)
 
     return {
         "max_iterations": 10000,
@@ -87,8 +92,8 @@ def setup_fx3():
 
 
 def setup_sin():
-    def sin_function(x):
-        return math.sin(x)
+    def sin_function(args):
+        return math.sin(args['x'])
 
     return {
         "max_iterations": 10000,
@@ -102,8 +107,8 @@ def setup_sin():
 
 
 def setup_fx6():
-    def f_x6_function(x):
-        return math.pow(x, 6)
+    def f_x6_function(args):
+        return math.pow(args['x'], 6)
 
     return {
         "max_iterations": 10000,
@@ -117,8 +122,8 @@ def setup_fx6():
 
 
 def setup_x2logx():
-    def f_x2logx_function(x):
-        return math.pow(x, 2) / math.log10(x)
+    def f_x2logx_function(args):
+        return math.pow(args['x'], 2) / math.log10(args['x'])
 
     return {
         "max_iterations": 10000,
@@ -132,8 +137,8 @@ def setup_x2logx():
 
 
 def setup_tgx():
-    def f_tgx_function(x):
-        return math.tan(x)
+    def f_tgx_function(args):
+        return math.tan(args['x'])
 
     return {
         "max_iterations": 10000,
@@ -147,8 +152,8 @@ def setup_tgx():
 
 
 def setup_log_x():
-    def f_log_x_function(x):
-        return math.tan(x)
+    def f_log_x_function(args):
+        return math.tan(args['x'])
 
     return {
         "max_iterations": 10000,
