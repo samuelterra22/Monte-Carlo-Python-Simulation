@@ -8,5 +8,5 @@ progressbar2==3.47.0
 pyparsing==2.4.6
 python-dateutil==2.8.1
 python-utils==2.3.0
-setuptools==42.0.2
+setuptools==44.0.0
 six==1.13.0
