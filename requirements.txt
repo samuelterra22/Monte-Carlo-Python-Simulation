@@ -3,7 +3,7 @@ kiwisolver==1.1.0
 matplotlib==3.1.2
 numba==0.47.0
 numpy==1.18.1
-pip==20.0.1
+pip==20.0.2
 progressbar2==3.47.0
 pyparsing==2.4.6
 python-dateutil==2.8.1
