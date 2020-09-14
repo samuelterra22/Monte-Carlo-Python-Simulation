@@ -4,7 +4,7 @@ matplotlib==3.3.1
 numba==0.51.2
 numpy==1.19.2
 pip==20.2.3
-progressbar2==3.52.1
+progressbar2==3.53.1
 pyparsing==2.4.7
 python-dateutil==2.8.1
 python-utils==2.4.0
