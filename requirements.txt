@@ -6,7 +6,7 @@ numpy==1.21.0
 pip==21.1.2
 progressbar2==3.53.1
 pyparsing==2.4.7
-python-dateutil==2.8.1
+python-dateutil==2.8.2
 python-utils==2.5.6
 setuptools==57.2.0
 six==1.16.0
